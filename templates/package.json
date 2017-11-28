@@ -1,8 +1,8 @@
 {
-  "title": "Simple Sidebar",
-  "name": "startbootstrap-simple-sidebar",
+  "title": "Bare",
+  "name": "startbootstrap-bare",
   "version": "4.0.0-beta.2",
-  "description": "A simple sidbar navigation HTMl template built with Bootstrap",
+  "description": "A basic HTML starter template for Bootstrap",
   "keywords": [
     "css",
     "sass",
@@ -11,9 +11,9 @@
     "theme",
     "template"
   ],
-  "homepage": "https://startbootstrap.com/template-overviews/simple-sidebar",
+  "homepage": "https://startbootstrap.com/template-overviews/bare",
   "bugs": {
-    "url": "https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/issues",
+    "url": "https://github.com/BlackrockDigital/startbootstrap-bare/issues",
     "email": "feedback@startbootstrap.com"
   },
   "license": "MIT",
@@ -23,7 +23,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-simple-sidebar.git"
+    "url": "https://github.com/BlackrockDigital/startbootstrap-bare.git"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",

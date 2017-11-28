@@ -22,11 +22,11 @@ body {
 
 #sidebar-wrapper {
   z-index: 1000;
-  position: fixed;
+  /*position: fixed;*/
   left: 250px;
-  width: 0;
+  width: 250px;
   height: 100%;
-  margin-left: -250px;
+  /*margin-left: -250px;*/
   overflow-y: auto;
   background: #000;
   -webkit-transition: all 0.5s ease;
