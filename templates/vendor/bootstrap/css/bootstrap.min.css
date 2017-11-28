@@ -5987,7 +5987,8 @@ a.bg-light:hover {
 }
 
 .bg-dark {
-  background-color: #343a40!important
+	/*background-image: url("../../../nav-bg.jpeg")!important;*/
+	background-color: #AACCDD
 }
 
 a.bg-dark:focus,
