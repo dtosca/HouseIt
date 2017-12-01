@@ -31,7 +31,11 @@ def faq():
 @app.route('/preferences/', methods= ['GET','POST'])
 def pref():
     ''' Preferences page
-    ''' 
+    '''
+    try:
+        if request.method == 'POST':
+            firstName = request.form['first-name']
+            print firstName
     return render_template('preferences.html')
 
 
