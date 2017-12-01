@@ -14,18 +14,3 @@ def cursor(database=DATABASE):
 	DSN['db'] = database
 	conn = dbconn2.connect(DSN)
 	return conn.cursor(MySQLdb.cursors.DictCursor)
-
-
-
-#Query that returns a specific movie by checking for matching tt in database
-#def getMovie(tt):
-#	''' Returns picked movie'''
-#	curs = cursor()
-#	curs.execute('select * from movie where tt=%s', (tt,))
-#	row = curs.fetchone()
-#	print 'Calling getMovie'
-#	return row
-
-
-
-
