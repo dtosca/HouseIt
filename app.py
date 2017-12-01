@@ -1,4 +1,4 @@
-# Diana Tosca and Jacqueline Young
+#Diana Tosca and Jacqueline Young
 import sys
 import dbconn2
 import houseit
@@ -33,14 +33,22 @@ def faq():
 def pref():
     ''' Preferences page
     '''
-    print "in PREF"
     try:
-        print "IN TRY"
         if request.method == 'POST':
-            print "IN POST"
             firstName = request.form['first-name']
-            print "firstname: "+str(firstName)
-            return render_template('index.html')
+            lastName = request.form['last-name']
+            bnum = request.form['bnum']
+            roomMate1 = request.form['roommate1']
+            roomMate2 = request.form['roommate2']
+            roomMate3 = request.form['roommate3']
+            roomType = request.form['dropdown1']
+            blockMate1 = request.form['blockmate1']
+            blockMate2 = request.form['blockmate2']
+            blockMate3 = request.form['blockmate3']
+            name = str(firstName) + ' ' + str(lastName)
+            roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
+            blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3) 
+            return render_template('index.html',name=name,bnum=bnum,roomMate=roomMate,blockMate=blockMate,roomType=roomType)
     except Exception as err:
         print 'Exception', str(err)
     return render_template('preferences.html')
