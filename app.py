@@ -13,8 +13,7 @@ app.secret_key = 'b@n@N@'
 @app.route('/', methods= ['GET','POST'])
 def index():
     ''' Index page
-    ''' 
-    print "********************************************"
+    '''
     return render_template('index.html')
 
 @app.route('/reshalls/', methods= ['GET','POST'])
@@ -35,6 +34,7 @@ def pref():
     '''
     try:
         if request.method == 'POST':
+            #Get the information from the housing form
             firstName = request.form['first-name']
             lastName = request.form['last-name']
             bnum = request.form['bnum']
@@ -46,8 +46,10 @@ def pref():
             blockMate2 = request.form['blockmate2']
             blockMate3 = request.form['blockmate3']
             name = str(firstName) + ' ' + str(lastName)
+            #Combine blockmates and roommates into one string
             roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
             blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3) 
+            #Render the index.html tempates with information filled out
             return render_template('index.html',name=name,bnum=bnum,roomMate=roomMate,blockMate=blockMate,roomType=roomType)
     except Exception as err:
         print 'Exception', str(err)
