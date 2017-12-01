@@ -14,6 +14,7 @@ app.secret_key = 'b@n@N@'
 def index():
     ''' Index page
     ''' 
+    print "********************************************"
     return render_template('index.html')
 
 @app.route('/reshalls/', methods= ['GET','POST'])
@@ -32,12 +33,17 @@ def faq():
 def pref():
     ''' Preferences page
     '''
+    print "in PREF"
     try:
+        print "IN TRY"
         if request.method == 'POST':
+            print "IN POST"
             firstName = request.form['first-name']
-            print firstName
+            print "firstname: "+str(firstName)
+            return render_template('index.html')
+    except Exception as err:
+        print 'Exception', str(err)
     return render_template('preferences.html')
-
 
 if __name__ == '__main__':
     app.debug = True
