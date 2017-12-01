@@ -1,7 +1,7 @@
 # Diana Tosca and Jacqueline Young
 import sys
 import dbconn2
-import houseIt
+import houseit
 import MySQLdb
 import os
 from flask import (Flask, render_template, make_response,
@@ -16,11 +16,11 @@ def index():
     ''' 
     return render_template('index.html')
 
-@app.route('/dorms/', methods= ['GET','POST'])
+@app.route('/reshalls/', methods= ['GET','POST'])
 def dorms():
     ''' Dorms page
     ''' 
-    return render_template('dorms.html')
+    return render_template('reshalls.html')
 
 @app.route('/faq/', methods= ['GET','POST'])
 def faq():
