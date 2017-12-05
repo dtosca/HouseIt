@@ -14,3 +14,7 @@ def cursor(database=DATABASE):
 	DSN['db'] = database
 	conn = dbconn2.connect(DSN)
 	return conn.cursor(MySQLdb.cursors.DictCursor)
+
+def updatePref():
+        curs = cursor()
+        curs.execute()
