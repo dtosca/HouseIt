@@ -10,7 +10,7 @@ create table room (
 );
 
 create table attribute (
-       att_id int not null primary key auto_increment,
+       att primary key auto_increment,
        att_label varchar(50),
        necessary boolean
 );
@@ -27,7 +27,7 @@ create table student (
 
 create table preferences (
        username varchar(15),
-       att_id int,
+       att_id varchar(5),
        primary key (username, att_id),
        foreign key (username) references student(username),
        foreign key (att_id) references attribute(att_id)

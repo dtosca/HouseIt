@@ -1,7 +1,7 @@
 #Diana Tosca and Jacqueline Young
 import sys
 import dbconn2
-import houseit
+import dbfunctions
 import MySQLdb
 import os
 from flask import (Flask, render_template, make_response,
@@ -49,7 +49,7 @@ def pref():
             #Combine blockmates and roommates into one string
             roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
             blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)
-            updatePref()
+            dbfunctions.formInfo(bnum,roomMate,blockMate)
             #Render the index.html tempates with information filled out
             return render_template('index.html',name=name,bnum=bnum,roomMate=roomMate,blockMate=blockMate,roomType=roomType)
     except Exception as err:

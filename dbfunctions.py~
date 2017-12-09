@@ -1,0 +1,40 @@
+import dbconn2
+import MySQLdb
+import os
+import sys
+from flask import (Flask, render_template, make_response,
+                    url_for, request, flash, redirect)
+
+
+DATABASE = 'houseit_db'
+
+#Establish the connection with the database
+def cursor(database=DATABASE):
+	DSN = dbconn2.read_cnf()
+	DSN['db'] = database
+	conn = dbconn2.connect(DSN)
+	return conn.cursor(MySQLdb.cursors.DictCursor)
+
+def updatePref(username,attID):
+        curs = cursor()
+	#updating preferences
+        curs.execute("insert into preferences(username,att_id) values (%s,%s)",(username,attID))
+
+def updateAttr(roomMates,blockMates):
+	curs = cursor()
+	curs.execute('insert into attribute(att_label,necessary) values (%s,true), (%s,false)',(roomMates,blockMates))
+
+def findID(label):
+	curs = cursor()
+	curs.execute('select att_id from attribute where att_label=%s',(label,))
+	row = curs.fetchone()
+	return row['att_id']
+
+def formInfo(bnum,roomMates,blockMates):
+	updateAttr(roomMates,blockMates)
+	roomAttrID = findID(roomMates)
+	blockAttrID = findID(blockMates)
+	#substituting username with bnum until we have the login information
+	updatePref(bnum,roomAttrID)
+	updatePref(bnum,blockAttrID)
+	
