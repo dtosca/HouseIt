@@ -1,3 +1,11 @@
+button .login {
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 20%;
+    background-color: blue;
+
+
+}
 .student-info {
 	margin-top: 50px;
 	width: 30%;

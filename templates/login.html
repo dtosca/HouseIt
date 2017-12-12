@@ -53,10 +53,10 @@
                   
       {% if username %}
               <!-- route defined by CAS -->
-         <form action="/logout/"><button>logout {{username}}</button></form>
+         <form action="/logout/"><button class='login'>logout {{username}}</button></form>
       {% else %}
               <!-- route defined by CAS -->
-         <form action="/login/"><button>login</button></form>
+         <form action="/login/"><button class='login'>login</button></form>
       {% endif %}   
 
       {% block main_content %}

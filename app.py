@@ -51,11 +51,6 @@ def logged_out():
     flash('successfully logged out!')
     return redirect( url_for('index') )
 
-@app.route('/home/', methods= ['GET','POST'])
-def index():
-    ''' Index page
-    '''
-    return render_template('index.html')
 
 @app.route('/reshalls/', methods= ['GET','POST'])
 def dorms():
