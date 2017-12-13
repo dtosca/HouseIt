@@ -9,7 +9,7 @@ create table room (
              'Bates', 'Freeman','McAfee','Casa Cervantes','Dower',
               'French House','Stone-Davis', 'Simpson West', 'Hemlock'),
        room_type enum('single', 'double', 'triple', 'quad', 'suite'),
-       nuts,
+       nuts boolean,
        hardwood boolean,
        pets_ok boolean,
        acc boolean,
