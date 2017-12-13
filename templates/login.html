@@ -19,13 +19,13 @@
       body{
           background-image: url({{ url_for('static', filename='images/wellesley-bg.jpg') }});
       }
-      button {
-          width: 30%!;
-          margin-top: 10%!important;
-          margin-left: 20%!important;
-          background-color: #AACCDD;
+      .wrapper {
+          text-align: center;
+      }
 
-
+      .button {
+          position: absolute;
+          top: 50%;
       }
             </style>
 
@@ -45,7 +45,7 @@
     <!-- Page Content -->
     <div>
       {% block main_content %}
-      <h1>Welcome to HouseIt!</h1>
+      <h2>Welcome to HouseIt!</h2>
       {% endblock %}
 
       {% with messages = get_flashed_messages() %}
@@ -60,10 +60,18 @@
                   
       {% if username %}
               <!-- route defined by CAS -->
-         <form action="/logout/"><button>logout {{username}}</button></form>
+         <form action="/logout/">
+          <div class='wrapper'>
+            <button class='button'>Logout {{username}}</button>
+          </div>
+        </form>
       {% else %}
               <!-- route defined by CAS -->
-         <form action="/login/"><button>login</button></form>
+         <form action="/login/">
+          <div class='wrapper'>
+            <button class='button'>Login</button>
+          </div>
+        </form>
       {% endif %}   
 
       
