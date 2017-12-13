@@ -1,3 +1,15 @@
+body .login {
+    background-image: url("images/wellesley-bg.jpg");
+}
+button .login {
+    width: 30%!important;
+    margin-top: 10%!important;
+    margin-left: 20%!important;
+    background-color: blue!important;
+
+
+}
+
 /*!
  * Bootstrap v4.0.0-beta.2 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
