@@ -5,7 +5,6 @@ import sys
 from flask import (Flask, render_template, make_response,
                     url_for, request, flash, redirect)
 
-
 DATABASE = 'houseit_db'
 
 #Establish the connection with the database
@@ -15,26 +14,18 @@ def cursor(database=DATABASE):
 	conn = dbconn2.connect(DSN)
 	return conn.cursor(MySQLdb.cursors.DictCursor)
 
-def updatePref(username,attID):
-        curs = cursor()
-	#updating preferences
-        curs.execute("insert into preferences(username,att_id) values (%s,%s)",('dtosca',attID))
-
-def updateAttr(roomMates,blockMates):
+def insertStud(username,nm):
 	curs = cursor()
-	curs.execute('insert into attribute(att_label,necessary) values (%s,true), (%s,false)',(roomMates,blockMates))
+	curs.execute('insert into student(username, nm) values (%s,%s)', (username,nm,))
+	print 'Done inserting new student user'
 
-def findID(label):
+def updateStud(dorm,roomType,roomMates,blockMates,nuts,pets,carpet,accessible):
 	curs = cursor()
-	curs.execute('select att_id from attribute where att_label=%s',(label,))
-	row = curs.fetchone()
-	return row['att_id']
 
-def formInfo(bnum,roomMates,blockMates):
-	updateAttr(roomMates,blockMates)
-	roomAttrID = findID(roomMates)
-	blockAttrID = findID(blockMates)
-	#substituting username with bnum until we have the login information
-	updatePref(bnum,roomAttrID)
-	updatePref(bnum,blockAttrID)
-	
+def getRooms(dorm,roomType,roomMates,blockMates,nuts,pets,carpet,accessible):
+	print 'wow'
+
+#gets infomration from the forms to call other functions
+def formInfo(rankings,roomType,roomMates,blockMates,nuts,pets,carpet,accessible):
+	updateStud(rankings,roomType,nuts,pets,carpet,accessible);
+	getRooms(rankings,roomType,nuts,pets,carpet,accessible);
