@@ -24,6 +24,46 @@
           padding-top: 56px;
         }
       }
+      .rbutton {
+          float: right;
+          /*position: absolute;*/
+          top: 40%;
+          /*left: 35%;*/
+          height: 80px;
+          width: 30%;
+          font-size: 25px;
+          background-color: oldlace;
+          color: darkgray;
+          border-radius: 10px;
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+          border: 1px solid darkkhaki;
+          -webkit-transition-duration: 0.4s; /* Safari */
+          transition-duration: 0.4s;
+          cursor: pointer;
+      }
+
+      .pbutton {
+          float: right;
+          /*position: absolute;*/
+          top: 40%;
+          /*left: 35%;*/
+          height: 80px;
+          width: 30%;
+          font-size: 25px;
+          background-color: oldlace;
+          color: darkgray;
+          border-radius: 10px;
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+          border: 1px solid darkkhaki;
+          -webkit-transition-duration: 0.4s; /* Safari */
+          transition-duration: 0.4s;
+          cursor: pointer;
+      }
+
+      .button:hover {
+          background-color: white;
+          color: burlywood;
+      }
 
     </style>
 
@@ -83,6 +123,12 @@
                 Roommates: {{roomMate}}<br>
                 Blocking with: {{blockMate}}<br>
             </div>
+        <form action="/reshalls/">
+            <button class='rbutton'>Explore Res Halls</button>
+        </form>
+        <form action="/preferences/">
+            <button class='pbutton'>Submit Housing Preferences/button>
+        </form>
 
         </div>
       <!-- <div class="row">
