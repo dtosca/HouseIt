@@ -17,7 +17,7 @@
     <!-- Custom styles for this template -->
     <style>
       body .login {
-          background-image: {{url_for("images/wellesley-bg.jpg")}};
+          background-image: url({{ url_for('static', filename='images/wellesley-bg.jpg') }});
       }
       button .login {
           width: 30%!;
@@ -72,8 +72,8 @@
     </div>
     </body>
     <!-- Bootstrap core JavaScript -->
-    <script href={{url_for('static', "vendor/jquery/jquery.min.js")}} ></script>
-    <script href={{url_for("vendor/bootstrap/js/bootstrap.bundle.min.js")}} ></script>
+    // <script href={{url_for('static', "vendor/jquery/jquery.min.js")}} ></script>
+    // <script href={{url_for("vendor/bootstrap/js/bootstrap.bundle.min.js")}} ></script>
 
   </body>
 
