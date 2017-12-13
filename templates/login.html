@@ -16,10 +16,10 @@
 
     <!-- Custom styles for this template -->
     <style>
-      body .login {
+      body{
           background-image: url({{ url_for('static', filename='images/wellesley-bg.jpg') }});
       }
-      button .login {
+      button {
           width: 30%!;
           margin-top: 10%!important;
           margin-left: 20%!important;
@@ -46,7 +46,6 @@
     <div>
       {% block main_content %}
       <h1>Welcome to HouseIt!</h1>
-      <h2> A new way to navigate Wellesley's housing process</h2>
       {% endblock %}
 
       {% with messages = get_flashed_messages() %}
@@ -61,10 +60,10 @@
                   
       {% if username %}
               <!-- route defined by CAS -->
-         <form action="/logout/"><button class='login'>logout {{username}}</button></form>
+         <form action="/logout/"><button>logout {{username}}</button></form>
       {% else %}
               <!-- route defined by CAS -->
-         <form action="/login/"><button class='login'>login</button></form>
+         <form action="/login/"><button>login</button></form>
       {% endif %}   
 
       
