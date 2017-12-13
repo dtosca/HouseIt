@@ -22,6 +22,7 @@
       @media (min-width: 992px) {
         body {
           padding-top: 56px;
+          background-image: url({{ url_for('static', filename='images/lake.jpg') }});
         }
       }
       .rbutton {
@@ -30,7 +31,7 @@
           top: 20%;
           left: 60%;
           height: 80px;
-          width: 30%;
+          width: 25%;
           font-size: 25px;
           background-color: oldlace;
           color: darkgray;
@@ -43,10 +44,9 @@
       }
 
       .pbutton {
-          float: right;
-          /*position: absolute;*/
+          position: absolute;
           top: 40%;
-          /*left: 35%;*/
+          left: 60%;
           height: 80px;
           width: 30%;
           font-size: 25px;
