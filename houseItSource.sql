@@ -47,4 +47,4 @@ insert into room (room_code, dorm, room_type, hardwood, pets_ok, acc, available)
   ('SHA419','Shafer','single',true,true,true,true),
   ('FRE108','Freeman','double',false,false,true,true);
 
--- insert into student(username, nm, yr, lottery_num, dorm, type, hardwood, pets_ok, accessible, room_code) values
+-- insert into student(username, nm, yr, lottery_num, dorm, room_type, hardwood, pets_ok, accessible, room_code) values
