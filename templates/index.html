@@ -139,6 +139,7 @@
                 Nut-free: {{nuts}}<br>
                 Pet Friendly: {{pets}}<br>
                 Hardwood floors: {{hardwood}}<br>
+                Accessible: {{acc}}<br>
 
             </div>
         <form action="/reshalls/">
@@ -149,6 +150,32 @@
         </form>
 
         </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Dorm</th>
+              <th>Room #</th>
+              <th>Nut-Free</th>
+              <th>Pet Friendly</th>
+              <th>Hardwood</th>
+              <th>Accessible</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for room in rooms %}
+              <tr>
+                <td>{{ room['dorm'] }}</td>
+                <td>{{ room['room_num'] }}</td>
+                <td>{{ room['nut_free'] }}</td>
+                <td>{{ room['pets'] }}</td>
+                <td>{{ room['hardwood'] }}</td>
+                <td>{{ room['acc'] }}</td>
+              </tr>
+                
+            {% endfor %}
+          </tbody>
+        </table>
       <!-- <div class="row">
         <div class="col-lg-12 text-center">
           <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
