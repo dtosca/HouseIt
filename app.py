@@ -22,7 +22,11 @@ app.config['CAS_VALIDATE_ROUTE'] = '/module.php/casserver/serviceValidate.php'
 @app.route('/logged_in/')
 def logged_in():
     flash('successfully logged in!')
-    return redirect( url_for('index') )
+    return redirect( url_for('home') )
+
+@app.route('/home/')
+def home():
+    return render_template('index.html')
  
 @app.route('/')
 def index():
@@ -45,13 +49,6 @@ def index():
         print('CAS_USERNAME is not in the session')
     return render_template('login.html', username=username, is_logged_in=is_logged_in)
  
- 
-@app.route('/scott/')
-def logged_out():
-    flash('successfully logged out!')
-    return redirect( url_for('index') )
-
-
 @app.route('/reshalls/', methods= ['GET','POST'])
 def dorms():
     ''' Dorms page
