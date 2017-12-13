@@ -94,14 +94,14 @@ def pref():
             blockMate3 = request.form['blockmate3']
             nuts = request.form['nuts']
             pets = request.form['pets']
-            carpet = request.form['carpet']
+            hardwood = request.form['hardwood']
             accessible = request.form['accessible']
             #Combine blockmates and roommates into one string
             rankings = str(ranking1)
             roomType - str(roomType1)
             roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
             blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)
-            dbfunctions.formInfo(rankings,roomType,roomMate,blockMate,nuts,pets,carpet,accessible)
+            dbfunctions.formInfo(rankings,roomType,roomMate,blockMate,nuts,pets,hardwood,accessible)
             #Render the index.html tempates with information filled out
             return render_template('index.html',name=name,bnum=bnum,roomMate=roomMate,blockMate=blockMate,roomType=roomType)
     except Exception as err:
