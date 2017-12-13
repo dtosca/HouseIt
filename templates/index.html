@@ -22,7 +22,7 @@
       @media (min-width: 992px) {
         body {
           padding-top: 56px;
-          background-image: url({{ url_for('static', filename='images/wellesley-bg.jpg') }}) no-repeat center center fixed; 
+          background-image: url({{ url_for('static', filename='images/wellesley-bg.jpg') }}); 
           -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;
@@ -67,6 +67,16 @@
       .button:hover {
           background-color: white;
           color: burlywood;
+      }
+      h2{
+          text-align: center;
+          padding: 80px;
+          color: white;
+          background-color: rgba(0,0,0,0.5);
+          height: 90px;
+      }
+      .border{
+        background-color: ivory;
       }
 
     </style>
