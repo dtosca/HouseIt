@@ -37,8 +37,8 @@
           height: 60px;
           width: 20%;
           font-size: 18px;
-          background-color: oldlace;
-          color: darkgray;
+          background-color: white;
+          color: burlywood;
           border-radius: 10px;
           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
           border: 1px solid darkkhaki;
@@ -54,8 +54,8 @@
           height: 60px;
           width: 20%;
           font-size: 18px;
-          background-color: oldlace;
-          color: darkgray;
+          background-color: white;
+          color: burlywood;
           border-radius: 10px;
           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
           border: 1px solid darkkhaki;
@@ -64,7 +64,7 @@
           cursor: pointer;
       }
 
-      .button:hover {
+      .rbutton:hover, .pbutton:hover {
           background-color: white;
           color: burlywood;
       }
@@ -163,6 +163,15 @@
             </tr>
           </thead>
           <tbody>
+
+            <tr>
+                <td>dorm</td>
+                <td>room['room_num'] </td>
+                <td>room['nut_free'] </td>
+                <td>room['pets'] </td>
+                <td>room['hardwood'] </td>
+                <td>room['acc'] </td>
+              </tr>
             {% for room in rooms %}
               <tr>
                 <td>{{ room['dorm'] }}</td>
