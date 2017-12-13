@@ -12,7 +12,7 @@ create table room (
        hardwood boolean,
        pets_ok boolean,
        acc boolean,
-       available boolean,
+       available boolean
 );
 
 create table student (
@@ -42,9 +42,9 @@ insert into admin (username, nm) values
        ('hgranger', 'Hermione Granger'),
        ('rweasley', 'Ron Weasley');
 
-insert into room (room_code, dorm, room_type, hardwood, pets_ok, acc, available,username) values
-  ('BAT409','Bates','single',true,true,true,true,NULL),
-  ('SHA419','Shafer','single',true,true,true,true,NULL),
-  ('FRE108','Freeman','double',false,false,true,true,NULL);
+insert into room (room_code, dorm, room_type, hardwood, pets_ok, acc, available) values
+  ('BAT409','Bates','single',true,true,true,true),
+  ('SHA419','Shafer','single',true,true,true,true),
+  ('FRE108','Freeman','double',false,false,true,true);
 
 -- insert into student(username, nm, yr, lottery_num, dorm, type, hardwood, pets_ok, accessible, room_code) values
