@@ -22,7 +22,7 @@ app.config['CAS_VALIDATE_ROUTE'] = '/module.php/casserver/serviceValidate.php'
 @app.route('/logged_in/')
 def logged_in():
     flash('successfully logged in!')
-    return redirect( url_for('index.html') )
+    return redirect( url_for('index') )
  
 @app.route('/')
 def index():
