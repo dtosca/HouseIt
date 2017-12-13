@@ -19,8 +19,12 @@
       body{
           background-image: url({{ url_for('static', filename='images/wellesley-bg.jpg') }});
       }
-      h1, .wrapper {
+      h1{
           text-align: center;
+          margin-top: 10%;
+          color: white;
+          background-color: rgba(0,0,0,0.5);
+          height: 90px;
       }
 
       .button {
@@ -62,8 +66,6 @@
     <!-- Page Content -->
     <div>
       <div class='wrapper'>
-
-      <h1>Welcome to HouseIt!</h1>
 
 
       {% with messages = get_flashed_messages() %}
