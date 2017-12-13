@@ -17,10 +17,10 @@
     <!-- Custom styles for this template -->
     <style>
       body .login {
-          background-image: url("images/wellesley-bg.jpg");
+          background-image: {{url_for("images/wellesley-bg.jpg")}};
       }
       button .login {
-          width: 30%!
+          width: 30%!;
           margin-top: 10%!important;
           margin-left: 20%!important;
           background-color: #AACCDD;
@@ -72,8 +72,8 @@
     </div>
     </body>
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script href={{url_for('static', "vendor/jquery/jquery.min.js")}} ></script>
+    <script href={{url_for("vendor/bootstrap/js/bootstrap.bundle.min.js")}} ></script>
 
   </body>
 
