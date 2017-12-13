@@ -26,6 +26,15 @@
       .button {
           position: absolute;
           top: 50%;
+          left: 35%;
+          height: 100px;
+          width: 30%;
+          font-size: 20px;
+          background-color: ivory;
+          color: darkgray;
+          border-radius: 10px;
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+          border: 1px solid darkkhaki;
       }
             </style>
 
@@ -44,6 +53,7 @@
 
     <!-- Page Content -->
     <div>
+      <div class='wrapper'>
       {% block main_content %}
       <h2>Welcome to HouseIt!</h2>
       {% endblock %}
@@ -61,10 +71,11 @@
       {% if username %}
               <!-- route defined by CAS -->
          <form action="/logout/">
-          <div class='wrapper'>
-            <button class='button'>Logout {{username}}</button>
-          </div>
+          
+            <button class='button'>Logout</button>
+          
         </form>
+        </div>
       {% else %}
               <!-- route defined by CAS -->
          <form action="/login/">
