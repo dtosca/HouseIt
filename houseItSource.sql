@@ -9,6 +9,7 @@ create table room (
              'Bates', 'Freeman','McAfee','Casa Cervantes','Dower',
               'French House','Stone-Davis', 'Simpson West', 'Hemlock'),
        room_type enum('single', 'double', 'triple', 'quad', 'suite'),
+       nuts,
        hardwood boolean,
        pets_ok boolean,
        acc boolean,
@@ -25,6 +26,7 @@ create table student (
               'Bates', 'Freeman','McAfee','Casa Cervantes','Dower',
               'French House','Stone-Davis', 'Simpson West', 'Hemlock'),
        room_type enum('single', 'double', 'triple', 'quad', 'suite'),
+       nuts boolean,
        hardwood boolean,
        pets_ok boolean,
        acc boolean,
@@ -42,9 +44,9 @@ insert into admin (username, nm) values
        ('hgranger', 'Hermione Granger'),
        ('rweasley', 'Ron Weasley');
 
-insert into room (room_code, dorm, room_type, hardwood, pets_ok, acc, available) values
-  ('BAT409','Bates','single',true,true,true,true),
-  ('SHA419','Shafer','single',true,true,true,true),
-  ('FRE108','Freeman','double',false,false,true,true);
+insert into room (room_code, dorm, room_type, nuts, hardwood, pets_ok, acc, available) values
+  ('BAT409','Bates','single',true,true,true,true,true),
+  ('SHA419','Shafer','single',true,true,true,true,true),
+  ('FRE108','Freeman','double',false,true,false,true,true);
 
--- insert into student(username, nm, yr, lottery_num, dorm, room_type, hardwood, pets_ok, accessible, room_code) values
+-- insert into student(username, nm, yr, lottery_num, dorm, room_rtype, hardwood, pets_ok, accessible, room_code) values
