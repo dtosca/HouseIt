@@ -8,10 +8,10 @@ create table room (
               'Claflin', 'Lake House', 'Severance', 'Tower Court', 
               'Bates', 'Freeman','McAfee','Casa Cervantes','Dower',
               'French House','Stone-Davis', 'Simpson West', 'Hemlock'),
-       type enum('single', 'double', 'triple', 'quad', 'suite'),
+       room_type enum('single', 'double', 'triple', 'quad', 'suite'),
        hardwood boolean,
        pets_ok boolean,
-       accessible boolean,
+       acc boolean,
        available boolean,
        username varchar(15),
        foreign key (username) references student(username)
@@ -27,10 +27,10 @@ create table student (
               'Claflin', 'Lake House', 'Severance', 'Tower Court', 
               'Bates', 'Freeman','McAfee','Casa Cervantes','Dower',
               'French House','Stone-Davis', 'Simpson West', 'Hemlock'),
-       type enum('single', 'double', 'triple', 'quad', 'suite'),
+       room_type enum('single', 'double', 'triple', 'quad', 'suite'),
        hardwood boolean,
        pets_ok boolean,
-       accessible boolean,
+       acc boolean,
        room_code varchar(6),
        foreign key (room_code) references room(room_code)
 );
