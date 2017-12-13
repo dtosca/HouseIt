@@ -13,8 +13,6 @@ create table room (
        pets_ok boolean,
        acc boolean,
        available boolean,
-       username varchar(15),
-       foreign key (username) references student(username)
 );
 
 create table student (
@@ -44,7 +42,7 @@ insert into admin (username, nm) values
        ('hgranger', 'Hermione Granger'),
        ('rweasley', 'Ron Weasley');
 
-insert into room (room_code, dorm, type, hardwood, pets_ok, accessible, available,username) values
+insert into room (room_code, dorm, room_type, hardwood, pets_ok, acc, available,username) values
   ('BAT409','Bates','single',true,true,true,true,NULL),
   ('SHA419','Shafer','single',true,true,true,true,NULL),
   ('FRE108','Freeman','double',false,false,true,true,NULL);
