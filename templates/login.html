@@ -38,9 +38,15 @@
         
       </div>
     </nav>
+    <body class='login'>
 
     <!-- Page Content -->
     <div>
+      {% block main_content %}
+      <h1>Welcome to HouseIt!</h1>
+      <h2> A new way to navigate Wellesley's housing process</h2>
+      {% endblock %}
+
       {% with messages = get_flashed_messages() %}
           {% if messages %}
               <div id="messages">
@@ -59,12 +65,10 @@
          <form action="/login/"><button class='login'>login</button></form>
       {% endif %}   
 
-      {% block main_content %}
-      <h1>Welcome to HouseIt!</h1>
-      {% endblock %}
+      
       
     </div>
-
+    </body>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

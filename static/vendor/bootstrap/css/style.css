@@ -1,3 +1,6 @@
+body .login {
+    background-image: url("images/wellesley-bg.jpg");
+}
 button .login {
     width: 30%!important;
     margin-top: 10%!important;
