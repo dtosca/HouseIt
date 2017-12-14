@@ -34,18 +34,21 @@ create table student (
        foreign key (room_code) references room(room_code)
 );
 
-create table admin (
-       username varchar(15) primary key,
-       nm varchar(50)
-);
-
-insert into admin (username, nm) values
-       ('hpotter', 'Harry Potter'),
-       ('hgranger', 'Hermione Granger'),
-       ('rweasley', 'Ron Weasley');
-
 insert into room (room_code, dorm, room_type, nuts, hardwood, pets, acc, available) values
   ('BAT409','Bates','single',true,false,true,false,true),
+  ('BAT419','Bates','single',true,false,true,false,true),
+  ('BAT429','Bates','single',true,false,true,false,true),
+  ('BAT459','Bates','single',true,false,true,false,true),
+  ('BAT439','Bates','single',true,false,true,false,true),
+  ('BAT449','Bates','single',true,false,true,false,true),
+  ('BAT408','Bates','single',false,false,false,false,true),
+  ('BAT407','Bates','single',false,false,true,false,true),
+  ('BAT406','Bates','single',true,false,false,false,true),
+  ('BAT405','Bates','single',false,true,false,true,true),
+  ('BAT404','Bates','single',false,false,true,true,true),
+  ('BAT403','Bates','single',true,true,false,false,true),
+  ('BAT402','Bates','single',true,false,true,false,true),
+  ('BAT401','Bates','single',true,false,true,false,true),
   ('BAT309','Bates','double',false,true,false,true,true),
   ('BAT209','Bates','single',true,false,false,true,true),
   ('BAT109','Bates','double',false,false,true,true,true),
@@ -65,5 +68,3 @@ insert into room (room_code, dorm, room_type, nuts, hardwood, pets, acc, availab
   ('TOW223','Tower Court','double',false,false,true,true,true),
   ('TOW123','Tower Court','double',false,false,false,true,true),
   ('TOW023','Tower Court','double',false,true,false,true,true);
-
--- insert into student(username, nm, yr, lottery_num, dorm, room_rtype, hardwood, pets_ok, accessible, room_code) values

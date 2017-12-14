@@ -117,10 +117,10 @@ def pref():
             roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
             blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)+' '+str(blockMate4)
             dbfunctions.updateStud(username,rankings,roomType,roomMate,blockMate,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
-            okRooms = dbfunctions.getRooms(rankings,roomType,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible']);
-            print okRooms;
+            okRooms = dbfunctions.getRooms(rankings,roomType,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
+            print okRooms
             #Render the index.html tempates with information filled out
-            return render_template('index.html',name=name,username=username,dorms=rankings,roomMate=roomMate,blockMate=blockMate,room_type=roomType,nuts=str(needs['nuts']),pets=str(needs['pets']),hardwood=str(needs['hardwood']),acc=str(needs['accessible']))
+            return render_template('index.html',name=name,username=username,dorms=rankings,roomMate=roomMate,blockMate=blockMate,room_type=roomType,nuts=str(needs['nuts']),pets=str(needs['pets']),hardwood=str(needs['hardwood']),acc=str(needs['accessible']),rooms=okRooms,lottery_num='365')
     except Exception as err:
         print "IN EXCEPTIONS*********************************************************"
         print 'Exception', str(err)

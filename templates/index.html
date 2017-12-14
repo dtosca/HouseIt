@@ -89,6 +89,7 @@
         left: 45%;
         color: black;
         border: 1px solid darkgray;
+        width: 50%;
       }
 
     </style>
@@ -168,29 +169,21 @@
               <th>Dorm</th>
               <th>Room #</th>
               <th>Nut-Free</th>
-              <th>Pet Friendly</th>
+              <th>Pet-friendly</th>
               <th>Hardwood</th>
               <th>Accessible</th>
             </tr>
           </thead>
           <tbody>
 
-            <tr>
-                <td>dorm</td>
-                <td>room['room_num'] </td>
-                <td>room['nut_free'] </td>
-                <td>room['pets'] </td>
-                <td>room['hardwood'] </td>
-                <td>room['acc'] </td>
-              </tr>
             {% for room in rooms %}
               <tr>
-                <td>{{ room['dorm'] }}</td>
-                <td>{{ room['room_num'] }}</td>
-                <td>{{ room['nut_free'] }}</td>
-                <td>{{ room['pets'] }}</td>
-                <td>{{ room['hardwood'] }}</td>
-                <td>{{ room['acc'] }}</td>
+                <td>{{room.dorm}}</td>
+                <td>{{room.room_code}} </td>
+                <td>{{room.nuts}} </td>
+                <td>{{room.pets}} </td>
+                <td>{{room.hardwood}}</td>
+                <td>{{room.acc}}</td>
               </tr>
                 
             {% endfor %}
