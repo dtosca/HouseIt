@@ -60,10 +60,10 @@ insert into room (room_code, dorm, room_type, nuts, hardwood, pets, acc, availab
   ('FRE208','Freeman','double',true,true,false,true,true),
   ('FRE108','Freeman','single',true,true,false,true,true),
   ('FRE008','Freeman','double',false,true,true,true,true),
-  ('TOW423','Tower','double',false,true,true,false,true),
-  ('TOW323','Tower','double',false,true,false,true,true),
-  ('TOW223','Tower','double',false,false,true,true,true),
-  ('TOW123','Tower','double',false,false,false,true,true),
-  ('TOW023','Tower','double',false,true,falsefalse,true,true);
+  ('TOW423','Tower Court','double',false,true,true,false,true),
+  ('TOW323','Tower Court','double',false,true,false,true,true),
+  ('TOW223','Tower Court','double',false,false,true,true,true),
+  ('TOW123','Tower Court','double',false,false,false,true,true),
+  ('TOW023','Tower Court','double',false,true,false,true,true);
 
 -- insert into student(username, nm, yr, lottery_num, dorm, room_rtype, hardwood, pets_ok, accessible, room_code) values
