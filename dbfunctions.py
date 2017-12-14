@@ -33,21 +33,9 @@ def updateStud(username,dorm,roomType,roomMates,blockMates,nuts,pets,hardwood,ac
         curs = cursor()
 	curs.execute('UPDATE student SET dorm=%s, room_type=%s, nuts=%s, pets=%s, hardwood=%s, acc=%s where username=%s', (dorm, roomType, nuts, pets, hardwood, acc,username))
 
-def getRooms(dorm,roomType,roomMates,blockMates,nuts,pets,hardwood,acc):
+def getRooms(dorm,roomType,nuts,pets,hardwood,acc):
 	print 'in getRooms'
 	curs = cursor()
-        curs.execute('select * from room where dorm=%s and room_type=%s and nuts=%s and hardwood=%s and pets=%s and acc=%s and available=true',(dorm,roomType,nuts,pets,hardwood,acc))
+        curs.execute('select * from room where dorm=%s and room_type=%s and nuts=%s and hardwood=%s and pets=%s and acc=%s and available=%s',(dorm,roomType,nuts,pets,hardwood,acc,'1'))
 	row = curs.fetchall()
 	return row
-
-#gets infomration from the forms to call other functions               
-def formInfo(username,rankings,roomType,roomMates,blockMates,nuts,pets,hardwood,accessible):
-	print username
-	print rankings
-	print roomType
-	print roomMates
-	print blockMates
-	print nuts
-	print pets
-        updateStud(username,rankings,roomType,roomMates,blockMates,nuts,pets,hardwood,accessible)
-        getRooms(rankings,roomType,roomMates, blockMates,nuts,pets,hardwood,accessible)

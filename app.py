@@ -106,17 +106,19 @@ def pref():
             blockMate4 = request.form['blockmate4']
             print "NEEDY"
             needsList = request.form.getlist('needs')
-            needs = {'nuts':False, 'pets':False, 'hardwood':False, 'accessible':False}
+            needs = {'nuts':'0', 'pets':'0', 'hardwood':'0', 'accessible':'0'}
             for need in needs:
                 if need in needsList:
-                    needs[need] = True
+                    needs[need] = '1'
                     
             #Combine blockmates and roommates into one string
             rankings = str(ranking1)
             roomType = str(roomType1)
             roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
             blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)+' '+str(blockMate4)
-            dbfunctions.formInfo(username,rankings,roomType,roomMate,blockMate,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
+            dbfunctions.updateStud(username,rankings,roomType,roomMate,blockMate,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
+            okRooms = dbfunctions.getRooms(rankings,roomType,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible']);
+            print okRooms;
             #Render the index.html tempates with information filled out
             return render_template('index.html',name=name,username=username,dorms=rankings,roomMate=roomMate,blockMate=blockMate,room_type=roomType,nuts=str(needs['nuts']),pets=str(needs['pets']),hardwood=str(needs['hardwood']),acc=str(needs['accessible']))
     except Exception as err:
