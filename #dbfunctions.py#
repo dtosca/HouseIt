@@ -1,4 +1,4 @@
-import dbconn2
+xsxcxccxccximport dbconn2
 import MySQLdb
 import os
 import sys
@@ -36,7 +36,7 @@ def updateStud(username,dorm,roomType,roomMates,blockMates,nuts,pets,hardwood,ac
 def getRooms(dorm,roomType,roomMates,blockMates,nuts,pets,hardwood,acc):
 	print 'in getRooms'
 	curs = cursor()
-        curs.execute('select * from room where dorm=%s and room_type=%s and nuts=%s and hardwood=%s and pets=%s and acc=%s and available=true',(dorm,roomType,nuts,pets,hardwood,acc))
+        curs.execute('select * from room where dorm=%s and roomType=%s and nuts=%s and hardwood=%s and pets_okay=%s and acc=%s and available=true',(dorm,roomType,nuts,pets,hardwood,acc))
 	row = curs.fetchall()
 	return row
 
@@ -50,4 +50,4 @@ def formInfo(username,rankings,roomType,roomMates,blockMates,nuts,pets,hardwood,
 	print nuts
 	print pets
         updateStud(username,rankings,roomType,roomMates,blockMates,nuts,pets,hardwood,accessible)
-        getRooms(rankings,roomType,roomMates, blockMates,nuts,pets,hardwood,accessible)
+        getRooms(rankings,roomType,nuts,pets,hardwood,accessible)

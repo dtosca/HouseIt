@@ -11,7 +11,7 @@ create table room (
        room_type enum('single', 'double', 'triple', 'quad', 'suite'),
        nuts boolean,
        hardwood boolean,
-       pets_ok boolean,
+       pets boolean,
        acc boolean,
        available boolean
 );
@@ -28,7 +28,7 @@ create table student (
        room_type enum('single', 'double', 'triple', 'quad', 'suite'),
        nuts boolean,
        hardwood boolean,
-       pets_ok boolean,
+       pets boolean,
        acc boolean,
        room_code varchar(6),
        foreign key (room_code) references room(room_code)

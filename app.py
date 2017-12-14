@@ -15,13 +15,9 @@ CAS(app)
 app.config['CAS_SERVER'] = 'https://login.wellesley.edu:443'
 app.config['CAS_AFTER_LOGIN'] = 'logged_in'
 app.config['CAS_LOGIN_ROUTE'] = '/module.php/casserver/cas.php/login'
-#app.config['CAS_LOGOUT_ROUTE'] = '/module.php/casserver/cas.php/logout'
+app.config['CAS_LOGOUT_ROUTE'] = '/module.php/casserver/cas.php/logout'
 app.config['CAS_AFTER_LOGOUT'] = 'https://cs.wellesley.edu:1942/scott'
 app.config['CAS_VALIDATE_ROUTE'] = '/module.php/casserver/serviceValidate.php'
-
-#declaring global variable
-name='Ann Chovie'
-bnum='B6666666'
 
 @app.route('/logged_in/')
 def logged_in():
@@ -30,10 +26,20 @@ def logged_in():
 
 @app.route('/home/')
 def home():
-    return render_template('index.html',name=name,bnum=bnum)
+    if 'CAS_ATTRIBUTES' in session:
+        attribs = session['CAS_ATTRIBUTES']
+        name = attribs['cas:givenName']+' '+attribs['cas:sn']
+        username = session['CAS_USERNAME']
+        userInDB = dbfunctions.userInDB(username)
+        print "Is the user in DB? :"+str(userInDB)
+        if(not userInDB):
+            dbfunctions.insertStud(username,name)
+    return render_template('index.html',name=name,username=username)
 
 @app.route('/')
 def index():
+    name = ""
+    username = ""
     print session.keys()
     for k in session.keys():
         print k,' => ',session[k]
@@ -41,13 +47,8 @@ def index():
         token = session['_CAS_TOKEN']
     if 'CAS_ATTRIBUTES' in session:
         attribs = session['CAS_ATTRIBUTES']
-        for k in attribs:
-            print k,' => ',attribs[k]
         name = attribs['cas:givenName']+' '+attribs['cas:sn']
         username = session['CAS_USERNAME']
-        print name
-        print username
-        dbfunctions.insertStud(username,name)
     if 'CAS_USERNAME' in session:
         is_logged_in = True
         username = session['CAS_USERNAME']
@@ -55,8 +56,8 @@ def index():
     else:
         is_logged_in = False
         username = None
-        print('CAS_USERNAME is not in the session')
-    return render_template('login.html', username=username, is_logged_in=is_logged_in)
+        print('CAS_USERNAME is not in the session')    
+    return render_template('login.html',name=name,username=username, is_logged_in=is_logged_in)
  
 @app.route('/reshalls/', methods= ['GET','POST'])
 def dorms():
@@ -74,37 +75,52 @@ def faq():
 def pref():
     ''' Preferences page
     '''
+    name = ""
+    username = ""
     try:
+        if 'CAS_ATTRIBUTES' in session:
+            attribs = session['CAS_ATTRIBUTES']
+            name = attribs['cas:givenName']+' '+attribs['cas:sn']
+            username = session['CAS_USERNAME']
         if request.method == 'POST':
+            print "IN REQUEST POST"
             #Get the information from the housing form
+            print "GETTINGS RANKINGS"
             ranking1 = request.form['ranking1']
             ranking2 = request.form['ranking2']
             ranking3 = request.form['ranking3']
             ranking4 = request.form['ranking4']
             ranking5 = request.form['ranking5']
+            print "ROOM TYPE"
             roomType1 = request.form['rt1']
             roomType2 = request.form['rt2']
             roomType3 = request.form['rt3']
+            print "PRINTING ROOMATES"
             roomMate1 = request.form['roommate1']
             roomMate2 = request.form['roommate2']
             roomMate3 = request.form['roommate3']
-            roomType = request.form['dropdown1']
+            print "BLOCKMATES"
             blockMate1 = request.form['blockmate1']
             blockMate2 = request.form['blockmate2']
             blockMate3 = request.form['blockmate3']
-            nuts = request.form['nuts']
-            pets = request.form['pets']
-            hardwood = request.form['hardwood']
-            accessible = request.form['accessible']
+            blockMate4 = request.form['blockmate4']
+            print "NEEDY"
+            needsList = request.form.getlist('needs')
+            needs = {'nuts':False, 'pets':False, 'hardwood':False, 'accessible':False}
+            for need in needs:
+                if need in needsList:
+                    needs[need] = True
+                    
             #Combine blockmates and roommates into one string
             rankings = str(ranking1)
-            roomType - str(roomType1)
+            roomType = str(roomType1)
             roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
-            blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)
-            dbfunctions.formInfo(rankings,roomType,roomMate,blockMate,nuts,pets,hardwood,accessible)
+            blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)+' '+str(blockMate4)
+            dbfunctions.formInfo(username,rankings,roomType,roomMate,blockMate,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
             #Render the index.html tempates with information filled out
-            return render_template('index.html',name=name,bnum=bnum,roomMate=roomMate,blockMate=blockMate,roomType=roomType)
+            return render_template('index.html',name=name,username=username,dorms=rankings,roomMate=roomMate,blockMate=blockMate,room_type=roomType,nuts=str(needs['nuts']),pets=str(needs['pets']),hardwood=str(needs['hardwood']),acc=str(needs['accessible']))
     except Exception as err:
+        print "IN EXCEPTIONS*********************************************************"
         print 'Exception', str(err)
     return render_template('preferences.html')
 
