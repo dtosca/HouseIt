@@ -91,10 +91,8 @@
         border: 1px solid darkgray;
         width: 50%;
       }
-      .inline {
+      inline {
           display: inline-block;
-          width: 30px;
-          height: 30px;
       }
       .search {
         left: 45%;
@@ -217,10 +215,15 @@
               <option>Simpson West</option>
               <option>Hemlock</option>
           </select> -->
-
-          <fieldset>
-              <div>
-                <input class="inline" type="checkbox" name="needs" value="nuts">
+          <div>
+            <label><input type="checkbox" name="needs" value="nuts"> Nut-free</label>
+            <label><input type="checkbox" name="needs" value="hardwood"> Hardwood</label>
+            <label><input type="checkbox" name="needs" value="pets"> Pet-friendly</label>
+            <label><input type="checkbox" name="needs" value="accessible"> Accessible</label>
+          </div>
+          <!-- <fieldset>
+              <div class="form-group">
+                <input type="checkbox" name="needs" value="nuts">
                 <label for="nuts"><span class="span-normal">Nut-free</span></label>
               </div>
               <div>
@@ -235,7 +238,7 @@
                 <input class="inline" type="checkbox" name="needs" value="accessible">
                 <label for="carpet"><span class="span-normal">Accessible</span></label>
               </div>
-          </fieldset>
+          </fieldset> -->
 
           <!-- <button action="/home/">Refresh Table</button> -->
 
