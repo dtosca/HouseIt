@@ -91,7 +91,7 @@
         border: 1px solid darkgray;
         width: 50%;
       }
-      inline {
+      input, select {
           display: inline-block;
       }
       .search {
@@ -195,7 +195,7 @@
         </div>
 <!-- form for searching feature -->
         <form class="search" method=POST action="">
-        <!--   <select class="inline" name="dorm">
+          <select name="dorm">
               <option>Beebe</option>
               <option>Cazenove</option>
               <option>Munger</option>
@@ -214,31 +214,13 @@
               <option>Stone-Davis</option>
               <option>Simpson West</option>
               <option>Hemlock</option>
-          </select> -->
+          </select>
           <div>
             <label><input type="checkbox" name="needs" value="nuts"> Nut-free</label>
             <label><input type="checkbox" name="needs" value="hardwood"> Hardwood</label>
             <label><input type="checkbox" name="needs" value="pets"> Pet-friendly</label>
             <label><input type="checkbox" name="needs" value="accessible"> Accessible</label>
           </div>
-          <!-- <fieldset>
-              <div class="form-group">
-                <input type="checkbox" name="needs" value="nuts">
-                <label for="nuts"><span class="span-normal">Nut-free</span></label>
-              </div>
-              <div>
-                <input class="inline" type="checkbox" name="needs" value="pets">
-                <label for="pets"><span class="span-normal">Hardwood</span></label>
-              </div>
-              <div>
-                <input class="inline" type="checkbox" name="needs" value="hardwood">
-                <label for="carpet"><span class="span-normal">Pet-friendly</span></label>
-              </div>
-              <div>
-                <input class="inline" type="checkbox" name="needs" value="accessible">
-                <label for="carpet"><span class="span-normal">Accessible</span></label>
-              </div>
-          </fieldset> -->
 
           <!-- <button action="/home/">Refresh Table</button> -->
 
