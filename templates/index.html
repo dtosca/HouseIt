@@ -84,12 +84,19 @@
 
       table {
         position: absolute;
-        top: 30%;
+        top: 40%;
         background-color: white;
         left: 45%;
         color: black;
         border: 1px solid darkgray;
         width: 50%;
+      }
+      .inline {
+          position: absolute;
+          top: 30%;
+          display: inline-block;
+          width: 30px;
+          height: 30px;
       }
 
     </style>
@@ -187,7 +194,7 @@
         </div>
 <!-- form for searching feature -->
         <form method=POST action="">
-          <select name="dorm">
+          <select class="inline" name="dorm">
               <option>Beebe</option>
               <option>Cazenove</option>
               <option>Munger</option>
@@ -210,22 +217,24 @@
 
           <fieldset>
               <div>
-                <input type="checkbox" name="needs" value="nuts">
+                <input class="inline" type="checkbox" name="needs" value="nuts">
                 <label for="nuts"><span class="span-normal">Nut-free</span></label>
               </div>
               <div>
-                <input type="checkbox" name="needs" value="pets">
+                <input class="inline" type="checkbox" name="needs" value="pets">
                 <label for="pets"><span class="span-normal">Hardwood</span></label>
               </div>
               <div>
-                <input type="checkbox" name="needs" value="hardwood">
+                <input class="inline" type="checkbox" name="needs" value="hardwood">
                 <label for="carpet"><span class="span-normal">Pet-friendly</span></label>
               </div>
               <div>
-                <input type="checkbox" name="needs" value="accessible">
+                <input class="inline" type="checkbox" name="needs" value="accessible">
                 <label for="carpet"><span class="span-normal">Accessible</span></label>
               </div>
           </fieldset>
+
+          <button class="inline" action="/home/">Refresh Table</button>
 
 
         </form>
