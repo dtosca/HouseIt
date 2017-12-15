@@ -185,19 +185,26 @@
                   <td>Yes</td>
                 {% elif room.nuts == 0 %}
                   <td>No</td>
+                {% endif %}
+
                 {% if room.pets == 1 %}
                   <td>Yes</td>
                 {% elif room.pets == 0 %}
                   <td>No</td>
+                {% endif %}
+
                 {% if room.hardwood == 1 %}
                   <td>Yes</td>
                 {% elif room.hardwood == 0 %}
                   <td>No</td>
+                {% endif %}
+
                 {% if room.acc == 1 %}
                   <td>Yes</td>
                 {% elif room.acc == 0 %}
                   <td>No</td>
                 {% endif %}
+                
               </tr>
                 
             {% endfor %}
