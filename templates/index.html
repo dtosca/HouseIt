@@ -177,15 +177,61 @@
 
 
             </div>
+<!-- big buttons that redirect to res halls and preferences pages-->
         <form action="/reshalls/">
             <button class='rbutton'>Explore Res Halls</button>
         </form>
         <form action="/preferences/">
             <button class='pbutton'>Submit Housing Preferences</button>
         </form>
-
         </div>
+<!-- form for searching feature -->
+        <form method=POST action="">
+          <select name="dorm">
+              <option>Beebe</option>
+              <option>Cazenove</option>
+              <option>Munger</option>
+              <option>Pomeroy</option>
+              <option>Shafer</option>
+              <option>Claflin</option>
+              <option>Lake House</option>
+              <option>Severance</option>
+              <option>Tower Court</option>
+              <option>Bates</option>
+              <option>Freeman</option>
+              <option>McAfee</option>
+              <option>Casa Cervantes</option>
+              <option>Dower</option>
+              <option>French House</option>
+              <option>Stone-Davis</option>
+              <option>Simpson West</option>
+              <option>Hemlock</option>
+          </select>
 
+          <fieldset>
+              <div>
+                <input type="checkbox" name="needs" value="nuts">
+                <label for="nuts"><span class="span-normal">Nut-free</span></label>
+              </div>
+              <div>
+                <input type="checkbox" name="needs" value="pets">
+                <label for="pets"><span class="span-normal">Hardwood</span></label>
+              </div>
+              <div>
+                <input type="checkbox" name="needs" value="hardwood">
+                <label for="carpet"><span class="span-normal">Pet-friendly</span></label>
+              </div>
+              <div>
+                <input type="checkbox" name="needs" value="accessible">
+                <label for="carpet"><span class="span-normal">Accessible</span></label>
+              </div>
+          </fieldset>
+
+
+        </form>
+
+        
+<!-- table of matching rooms -->
         <table>
           <thead>
             <tr>
