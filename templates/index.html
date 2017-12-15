@@ -148,10 +148,33 @@
                 Room Type Ranking: {{room_type}}<br>
             		Roommates: {{roomMate}} <br>
             		Blocking with: {{blockMate}} <br>
-                Nut-free: {{nuts}}<br>
-                Pet Friendly: {{pets}}<br>
-                Hardwood floors: {{hardwood}}<br>
-                Accessible: {{acc}}<br>
+                Nut-free:
+                {% if nuts == 1 %}
+                Yes
+                {% elif nuts == 0 %}
+                No
+                {% endif %}
+                <br>Pet Friendly:
+                {% if pets == 1 %}
+                Yes
+                {% elif pets == 0 %}
+                No 
+                {% endif %}
+
+                <br>Hardwood floors:
+                {% if hardwood == 1 %}
+                Yes
+                {% elif hardwood == 0 %}
+                No 
+                {% endif %}
+
+                <br>Accessible:
+                {% if acc == 1 %}
+                Yes
+                {% elif acc == 0 %}
+                No 
+                {% endif %} <br>
+
 
             </div>
         <form action="/reshalls/">
