@@ -92,11 +92,14 @@
         width: 50%;
       }
       .inline {
-          position: absolute;
-          top: 30%;
           display: inline-block;
           width: 30px;
           height: 30px;
+      }
+      .search {
+        left: 45%;
+        top: 30%;
+        background-color: rgba(0,0,0,0.5);
       }
 
     </style>
@@ -193,7 +196,7 @@
         </form>
         </div>
 <!-- form for searching feature -->
-        <form method=POST action="">
+        <form class="search" method=POST action="">
           <select class="inline" name="dorm">
               <option>Beebe</option>
               <option>Cazenove</option>
@@ -234,7 +237,7 @@
               </div>
           </fieldset>
 
-          <button class="inline" action="/home/">Refresh Table</button>
+          <button action="/home/">Refresh Table</button>
 
 
         </form>
