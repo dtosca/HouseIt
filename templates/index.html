@@ -135,7 +135,7 @@
             <h2>Student Info</h2>
             <div class="border">
                 Name: {{name}}<br>
-		Username: {{username}} <br>
+		            Username: {{username}} <br>
                 Lottery #: {{lottery_num}}
             </div>
 
@@ -146,8 +146,8 @@
             <div class="border">
                 Dorm Ranking: {{dorms}}<br>
                 Room Type Ranking: {{room_type}}<br>
-		Roommates: {{roomMate}} <br>
-		Blocking with: {{blockMate}} <br>
+            		Roommates: {{roomMate}} <br>
+            		Blocking with: {{blockMate}} <br>
                 Nut-free: {{nuts}}<br>
                 Pet Friendly: {{pets}}<br>
                 Hardwood floors: {{hardwood}}<br>
@@ -180,6 +180,13 @@
               <tr>
                 <td>{{room.dorm}}</td>
                 <td>{{room.room_code}} </td>
+
+                {% if room.nuts == 1 %}
+                <td>Yes</td>
+                {% elif room.nuts == 0 %}
+                <td>No</td>
+                
+                {% endif %}
                 <td>{{room.nuts}} </td>
                 <td>{{room.pets}} </td>
                 <td>{{room.hardwood}}</td>
