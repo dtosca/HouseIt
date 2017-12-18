@@ -48,3 +48,9 @@ def getRooms(dorm,roomType,nuts,pets,hardwood,acc):
 	curs = cursor()
         curs.execute('select * from room where dorm=%s and room_type=%s and nuts=%s and hardwood=%s and pets=%s and acc=%s and available=%s',(dorm,roomType,nuts,pets,hardwood,acc,'1'))
 	return curs.fetchall()
+
+#inserts a picture for the student profile into the database
+def insertPic(pic):
+	print 'in insertPic'
+	curs = cursor()
+	curs.execute()

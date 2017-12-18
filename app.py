@@ -7,6 +7,7 @@ import os
 import imghdr
 from flask import (Flask, render_template, make_response, request, redirect, url_for,session, flash, send_from_directory)
 from flask_cas import CAS
+from werkzeug import secure_filename
 
 app = Flask(__name__)
 app.secret_key = 'b@n@N@'
@@ -24,7 +25,7 @@ app.config['CAS_VALIDATE_ROUTE'] = '/module.php/casserver/serviceValidate.php'
 @app.route('/logged_in/')
 def logged_in():
     flash('successfully logged in!')
-    return redirect( url_for('home') )
+    return redirect( url_for('home'))
 
 #home page that displays main information. After user logs in with CAS, their username and full name is displayed. 
 #Varibles retrieved through session.
@@ -79,7 +80,12 @@ def faq():
     return render_template('faq.html')
 
 @app.route('/uploader/', methods = ['GET','POST'])
-
+def uploader():
+    if request.method == 'POST':
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        print 'file uploaded successfully'
+        return redirect(url_for('home'))
 
 @app.route('/preferences/', methods= ['GET','POST'])
 def pref():

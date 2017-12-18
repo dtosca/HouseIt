@@ -21,6 +21,7 @@ create table student (
        nm varchar(50),
        yr char(4),
        lottery_num int,
+       pic blob,
        dormChoice1 enum('Beebe', 'Cazenove', 'Munger', 'Pomeroy', 'Shafer', 
               'Claflin', 'Lake House', 'Severance', 'Tower Court', 
               'Bates', 'Freeman','McAfee','Casa Cervantes','Dower',
