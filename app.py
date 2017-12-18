@@ -168,6 +168,13 @@ def pref():
         #if an error occurs, stay on the preferences.html page
         return render_template('preferences.html')
 
+@app.route('/bates/')
+def bates():
+    return render_template('bates.html')
+@app.route('/beebe/')
+def bates():
+    return render_template('beebe.html')
+
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         port=int(sys.argv[1])
