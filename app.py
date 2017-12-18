@@ -78,6 +78,9 @@ def faq():
     ''' 
     return render_template('faq.html')
 
+@app.route('/uploader/', methods = ['GET','POST'])
+
+
 @app.route('/preferences/', methods= ['GET','POST'])
 def pref():
     ''' Preferences page, page to fill out preferences, which store the information in the database and sends it back to front end.
