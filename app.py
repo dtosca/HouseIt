@@ -172,7 +172,7 @@ def pref():
 def bates():
     return render_template('bates.html')
 @app.route('/beebe/')
-def bates():
+def beebe():
     return render_template('beebe.html')
 
 if __name__ == '__main__':
