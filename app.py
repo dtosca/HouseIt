@@ -96,6 +96,8 @@ def pref():
                 username = session['CAS_USERNAME']
 
 	    #get all the information from the form once it is submitted
+            if request.method == 'GET':
+                print "IN REQUEST GET"
             if request.method == 'POST':
                 print "IN REQUEST POST"
 
@@ -139,8 +141,11 @@ def pref():
                 roomMate = str(roomMate1)+' '+str(roomMate2)+' '+str(roomMate3)
                 blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)+' '+str(blockMate4)
 
+                #call function to update dorm choices in student db
+                dbfunctions.updateDorms(ranking1,ranking2,ranking3,ranking4,ranking5,username)
+
 	        #call function to update student table, given the parameters filled out in the form
-                dbfunctions.updateStud(username,rankings,roomType,roomMate,blockMate,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
+                dbfunctions.updateStud(username,roomType,roomMate,blockMate,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
 
 	        #call function to get the list of rooms that fit the criteria filled out in the form
                 okRooms = dbfunctions.getRooms(rankings,roomType,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
