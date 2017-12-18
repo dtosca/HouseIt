@@ -60,11 +60,14 @@
         </div>
       </div>
     </nav>
-
+   
+    {% block content %}
     <!-- Page Content -->
-    <div class="container">
-        <h1 class="title">Dorm info</h1>
-    </div>
+    <h1> Bates </h1>
+<h2> We have a dining hall! Woohoo. </h2>
+<img src={{url_for('static', filename="images/bates-dining.jpg")}}>
+
+    {% endblock %}
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
