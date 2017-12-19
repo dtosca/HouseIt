@@ -174,6 +174,24 @@ def bates():
 @app.route('/beebe/')
 def beebe():
     return render_template('beebe.html')
+@app.route('/casacervantes/')
+def casacervantes():
+    return render_template('casacervantes.html')
+@app.route('/cazenove/')
+def cazenove():
+    return render_template('cazenove.html')
+@app.route('/claflin/')
+def claflin():
+    return render_template('claflin.html')
+@app.route('/dower/')
+def dower():
+    return render_template('dower.html')
+@app.route('/freeman/')
+def freeman():
+    return render_template('freeman.html')
+@app.route('/frenchhouse/')
+def frenchhouse():
+    return render_template('frenchhouse.html')
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
