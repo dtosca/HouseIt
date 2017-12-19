@@ -2,10 +2,15 @@ import dbconn2
 import MySQLdb
 import os
 import sys
+import re
 from flask import (Flask, render_template, make_response,
                     url_for, request, flash, redirect)
 
 DATABASE = 'houseit_db'
+DEST_DIR = '/home/cs304/public_html/images/'
+DEST_URL = '/~cs304/images/'
+IN_DB    = False                # false means store in dest_dir
+MAX_FILE_SIZE = 100000          # 100 KB
 
 #Establish the connection with the database                            
 def cursor(database=DATABASE):
@@ -49,8 +54,22 @@ def getRooms(dorm,roomType,nuts,pets,hardwood,acc):
         curs.execute('select * from room where dorm=%s and room_type=%s and nuts=%s and hardwood=%s and pets=%s and acc=%s and available=%s',(dorm,roomType,nuts,pets,hardwood,acc,'1'))
 	return curs.fetchall()
 
-#inserts a picture for the student profile into the database
-def insertPic(pic):
-	print 'in insertPic'
-	curs = cursor()
-	curs.execute()
+#inserts or updates picture blob for a student
+def storePicInDB(username,client_filename,file_data):
+    curs = cursor()
+    ## Test if the file was uploaded
+    if not client_filename:
+        return 'No file uploaded (yet)'
+
+    try:
+        curs.execute('UPDATE student SET pic=%s where username = %s',(file_data,username))
+    except Exception as e:
+        print e
+        return 'Failure to store picture data into database: '+str(e)
+    return 'Successfully uploaded picture data for username='+str(username)
+
+def getPic(cursor,username):
+    cursor.execute('SELECT pic FROM student WHERE username=%s',(username,))
+    row = cursor.fetchone()
+    data = row[0]
+    return data
