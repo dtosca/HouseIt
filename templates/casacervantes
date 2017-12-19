@@ -1,0 +1,7 @@
+{% extends "bates.html" %}
+
+{% block content %}
+<h1> Casa Cervantes </h1>
+<h2> We speak Spanish! Here is where you can find us: </h2>
+<img src={{url_for('static', filename="images/casacervantes.gif")}}>
+{% endblock %}
