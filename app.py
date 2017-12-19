@@ -94,6 +94,8 @@ def uploader():
         print 'file uploaded successfully'
         dbfunctions.storePicInDB(username,f.filename,f)
         pic = dbfunctions.getPic(username)
+        print "***********************PIC CONTENTS***********"
+        print pic
         return redirect(url_for('home',picture=str(pic)))
 
 @app.route('/preferences/', methods= ['GET','POST'])
