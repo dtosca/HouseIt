@@ -60,7 +60,6 @@ def storePicInDB(username,client_filename,file_data):
     ## Test if the file was uploaded
     if not client_filename:
         return 'No file uploaded (yet)'
-
     try:
         curs.execute('UPDATE student SET pic=%s where username = %s',(file_data,username))
     except Exception as e:
@@ -68,8 +67,7 @@ def storePicInDB(username,client_filename,file_data):
         return 'Failure to store picture data into database: '+str(e)
     return 'Successfully uploaded picture data for username='+str(username)
 
-def getPic(cursor,username):
-    cursor.execute('SELECT pic FROM student WHERE username=%s',(username,))
-    row = cursor.fetchone()
-    data = row[0]
-    return data
+def getPic(username):
+    curs = cursor()
+    curs.execute('SELECT pic FROM student WHERE username=%s',(username,))
+    return curs.fetchone()
