@@ -81,10 +81,18 @@ def faq():
 
 @app.route('/uploader/', methods = ['GET','POST'])
 def uploader():
+    name = ""
+    username = ""
+    #get the username and full name from session
+    if 'CAS_ATTRIBUTES' in session:
+        attribs = session['CAS_ATTRIBUTES']
+        name = attribs['cas:givenName']+' '+attribs['cas:sn']
+        username = session['CAS_USERNAME']
     if request.method == 'POST':
         f = request.files['file']
         f.save(secure_filename(f.filename))
         print 'file uploaded successfully'
+        dbfunctions.storePicInDB(username,f.filename,f)
         return redirect(url_for('home'))
 
 @app.route('/preferences/', methods= ['GET','POST'])
