@@ -33,7 +33,7 @@ def insertStud(username,nm):
         curs.execute('insert into student(username, nm) values (%s,%s)', (username,nm,))
         print 'Done inserting new student user'
 
-def updateDorms(choice1,choice2,choice3,choice4,choice5,username):
+def updateDorms(choice1,choice2,choice3,username):
 	curs = cursor()
 	curs.execute('UPDATE student SET dormChoice1=%s, dormChoice2=%s, dormChoice3=%s where username=%s', (choice1,choice2,choice3,username,))
 	print 'Done updating dorm rankings'
@@ -70,4 +70,6 @@ def storePicInDB(username,client_filename,file_data):
 def getPic(username):
     curs = cursor()
     curs.execute('SELECT pic FROM student WHERE username=%s',(username,))
-    return curs.fetchone()
+    row = curs.fetchone()
+    data = row[0]
+    return data

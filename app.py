@@ -31,6 +31,8 @@ def logged_in():
 #Varibles retrieved through session.
 @app.route('/home/')
 def home():
+    name = ""
+    username = ""
     if 'CAS_ATTRIBUTES' in session:
         attribs = session['CAS_ATTRIBUTES']
         name = attribs['cas:givenName']+' '+attribs['cas:sn']
@@ -116,8 +118,6 @@ def pref():
                 username = session['CAS_USERNAME']
 
 	    #get all the information from the form once it is submitted
-            if request.method == 'GET':
-                print "IN REQUEST GET"
             if request.method == 'POST':
                 print "IN REQUEST POST"
 
@@ -125,8 +125,6 @@ def pref():
                 ranking1 = request.form['ranking1']
                 ranking2 = request.form['ranking2']
                 ranking3 = request.form['ranking3']
-                ranking4 = request.form['ranking4']
-                ranking5 = request.form['ranking5']
 
 	        #Gets information from the room type (single,double,etc) section of form
                 roomType1 = request.form['rt1']
@@ -162,7 +160,7 @@ def pref():
                 blockMate = str(blockMate1)+' '+str(blockMate2)+' '+str(blockMate3)+' '+str(blockMate4)
 
                 #call function to update dorm choices in student db
-                dbfunctions.updateDorms(ranking1,ranking2,ranking3,ranking4,ranking5,username)
+                dbfunctions.updateDorms(ranking1,ranking2,ranking3,username)
 
 	        #call function to update student table, given the parameters filled out in the form
                 dbfunctions.updateStud(username,roomType,roomMate,blockMate,needs['nuts'],needs['pets'],needs['hardwood'],needs['accessible'])
