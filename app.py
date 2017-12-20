@@ -96,7 +96,7 @@ def uploader():
         pic = dbfunctions.getPic(username)
         print "***********************PIC CONTENTS***********"
         print pic
-        return redirect(url_for('home',picture=str(pic)))
+        return redirect(url_for('home',picture=pic))
 
 @app.route('/preferences/', methods= ['GET','POST'])
 def pref():
